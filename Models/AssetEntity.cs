@@ -9,7 +9,7 @@ namespace Game.Database.Models
         private string bundle;
         private string name;
         private string prefab;
-        private string version;
+        private int version;
 
         public string Id
         {
@@ -35,7 +35,7 @@ namespace Game.Database.Models
             set => prefab = value;
         }
 
-        public string Version
+        public int Version
         {
             get => version;
             set => version = value;

@@ -7,7 +7,7 @@ namespace Game.Database.Models
     {
         private string id;
         private string name;
-        private string version;
+        private int version;
 
         public string Id
         {
@@ -21,7 +21,7 @@ namespace Game.Database.Models
             set => name = value;
         }
 
-        public string Version
+        public int Version
         {
             get => version;
             set => version = value;
