@@ -6,21 +6,16 @@ namespace Game.Database.Models
     public class AssetEntity
     {
         private string id;
-        private string bundle;
         private string name;
-        private string prefab;
         private int version;
+        private bool active;
+        private string prefab;
+        private string bundle;
 
         public string Id
         {
             get => id;
             set => id = value;
-        }
-
-        public string Bundle
-        {
-            get => bundle;
-            set => bundle = value;
         }
 
         public string Name
@@ -29,16 +24,28 @@ namespace Game.Database.Models
             set => name = value;
         }
 
+        public int Version
+        {
+            get => version;
+            set => version = value;
+        }
+
+        public bool Active
+        {
+            get => active;
+            set => active = value;
+        }
+
         public string Prefab
         {
             get => prefab;
             set => prefab = value;
         }
 
-        public int Version
+        public string Bundle
         {
-            get => version;
-            set => version = value;
+            get => bundle;
+            set => bundle = value;
         }
     }
 }

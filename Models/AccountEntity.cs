@@ -9,6 +9,7 @@ namespace Game.Database.Models
         private int id;
         private string username;
         private string password;
+        private bool active;
         private Guid? token;
 
         public int Id
@@ -27,6 +28,12 @@ namespace Game.Database.Models
         {
             get => password;
             set => password = value;
+        }
+
+        public bool Active
+        {
+            get => active;
+            set => active = value;
         }
 
         public Guid? Token

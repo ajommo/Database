@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 using Game.Database.Models;
+using System.Collections.Generic;
 
 namespace Game.Database
 {
@@ -19,27 +20,32 @@ namespace Game.Database
 
         public AccountEntity GetAccount(string username, string password)
         {
-            return Accounts.FirstOrDefault(a => a.Username == username && a.Password == password);
+            return Accounts.FirstOrDefault(a => a.Username == username && a.Password == password && a.Active);
         }
 
         public AccountEntity GetAccount(int id, Guid token)
         {
-            return Accounts.FirstOrDefault(a => a.Id == id && a.Token == token);
+            return Accounts.FirstOrDefault(a => a.Id == id && a.Token == token && a.Active);
         }
 
         public AssetEntity GetAsset(string id)
         {
-            return Assets.FirstOrDefault(a => a.Id == id);
+            return Assets.FirstOrDefault(a => a.Id == id && a.Active);
+        }
+
+        public List<AssetEntity> GetAssets()
+        {
+            return Assets.Where(a => a.Active).ToList();
         }
 
         public BundleEntity GetBundle(string id)
         {
-            return Bundles.FirstOrDefault(bundle => bundle.Id == id);
+            return Bundles.FirstOrDefault(b => b.Id == id && b.Active);
         }
 
-        public IQueryable<BundleEntity> GetBundles()
+        public List<BundleEntity> GetBundles()
         {
-            return Bundles;
+            return Bundles.Where(b => b.Active).ToList();
         }
     }
 }

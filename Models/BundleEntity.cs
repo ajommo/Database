@@ -8,6 +8,7 @@ namespace Game.Database.Models
         private string id;
         private string name;
         private int version;
+        private bool active;
 
         public string Id
         {
@@ -25,6 +26,12 @@ namespace Game.Database.Models
         {
             get => version;
             set => version = value;
+        }
+
+        public bool Active
+        {
+            get => active;
+            set => active = value;
         }
     }
 }
