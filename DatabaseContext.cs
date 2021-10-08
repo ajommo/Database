@@ -13,6 +13,7 @@ namespace Game.Database
         public DbSet<AccountEntity> Accounts { set; get; }
         public DbSet<AssetEntity> Assets { set; get; }
         public DbSet<BundleEntity> Bundles { set; get; }
+        public DbSet<InstanceEntity> Instances { set; get; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
@@ -46,6 +47,11 @@ namespace Game.Database
         public List<BundleEntity> GetBundles()
         {
             return Bundles.Where(b => b.Active).ToList();
+        }
+
+        public InstanceEntity GetInstance(Guid id)
+        {
+            return Instances.FirstOrDefault(b => b.Id == id);
         }
     }
 }
